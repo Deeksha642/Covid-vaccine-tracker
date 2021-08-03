@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html>
+<head>
+     <meta charset="UTF-8">
+     <title>Covid Vaccine Tracker</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <style>
+       .content{
+        margin-top:300px;
+       }
+     h1{
+     color:black;
+
+     }
+       #cover {
+    background: #222 url('https://images.unsplash.com/photo-1615631648086-325025c9e51e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+       #cover-caption {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+form:before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    z-index: -1;
+    border-radius: 10px;
+}
+row{
+text-color:black;
+
+}
+   </style>
+
+</head>
+<body >
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+  <div class="container">
+      <div class="row ">
+          <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+              <h1 ><center>Co-Win-Slot-Notifier</center></h1>
+              {% if error %}
+              <p style="color:red;"><strong>{{ error }}</strong></p>
+              {% endif %}
+    <form class="justify-content-center form-container" method="POST">
+
+        {# This hidden_tag is a CSRF security feature. #}
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            <label style="color:black;font-size:20px;"><b>Name</b></label>{{ form.name }}
+            <br>
+        </div>
+        <div class="form-group">
+            <label style="color:black;font-size:20px;"><b>Email</b></label> {{ form.email }}
+        <br>
+        </div>
+        <div class="form-group">
+            <lable style="color:black;font-size:20px;"><b>District    </b></lable> {{form.district }}
+        <br>
+        </div>
+        <div class="form-group">
+            <label style="color:black;font-size:20px;"><b>Age</b></label> {{ form.age }}
+        <br>
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-primary btn-lg" >Submit</button>
+    </form>
+          </div>
+      </div>
+  </div>
+    </div>
+</section>
+</body>
+</html>

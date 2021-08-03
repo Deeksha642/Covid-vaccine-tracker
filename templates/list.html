@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Records of Students</title>
+</head>
+<body>
+      <table border="1">
+        <thead>
+        <td><h3>Name</h3></td>
+           <td><h3>Email</h3></td>
+           <td><h3>District</h3></td>
+           <td><h3>District_pincode</h3></td>
+           <td><h3>Age</h3></td>
+        </thead>
+          {% for row in rows %}
+           <tr>
+               <td><h3> {{ row['name'] }}</h3></td>
+               <td><h3> {{ row['email'] }}</h3></td>
+               <td><h3> {{ row["district"]}}</h3></td>
+               <td><h3> {{ row["district_id"]}}</h3></td>
+               <td><h3> {{ row["age"]}}</h3></td>
+           </tr>
+          {% endfor %}
+      </table>
+</body>
+</html>
